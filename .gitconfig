@@ -1,0 +1,9 @@
+[user]
+	name = zhumo
+	email = mozhu888@gmail.com
+
+[alias]
+  br = branch
+  hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+[push]
+	default = simple
