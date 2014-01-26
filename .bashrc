@@ -5,7 +5,6 @@ export PS1="\[\e[33m\]\u@\W -\[\e[0m\] "
 
 export EDITOR=vim
 
-alias rm="rm -i"
 alias gcm="git commit -m"
 alias gs="git status"
 alias gh="git hist"
@@ -21,6 +20,10 @@ alias rollback!="rake db:rollback"
 alias migrate!="rake db:migrate"
 
 alias cpdatabase="cp config/database.example.yml config/database.yml"
+
+function rm() {
+  mv $1 ~/.Trash
+}
 
 function rails_new() {
   rails new $1 -T -B -d=postgresql &&
