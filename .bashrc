@@ -6,6 +6,21 @@ export PS1="\[\e[33m\]\u@\W -\[\e[0m\] "
 export EDITOR=vim
 
 alias rm="rm -i"
+alias gcm="git commit -m"
+alias gs="git status"
+alias gh="git hist"
+alias gco="git checkout"
+alias gpo="git push origin"
+alias branches="git branch"
+alias clone="git clone"
+
+alias mrmt="rake db:migrate && rake db:rollback && rake db:migrate && rake db:test:prepare"
+alias mrm="rake db:migrate && rake db:rollback && rake db:migrate"
+alias test!="rake db:test:prepare"
+alias rollback!="rake db:rollback"
+alias migrate!="rake db:migrate"
+
+alias cpdatabase="cp config/database.example.yml config/database.yml"
 
 function rails_new() {
   rails new $1 -T -B -d=postgresql &&
@@ -101,8 +116,3 @@ function create_folders() {
   mkdir spec/factories
 }
 
-alias cpdatabase="cp config/database.example.yml config/database.yml"
-
-alias mrmt="rake db:migrate && rake db:rollback && rake db:migrate && rake db:test:prepare"
-
-alias mrm="rake db:migrate && rake db:rollback && rake db:migrate"
