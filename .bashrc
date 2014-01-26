@@ -20,10 +20,7 @@ alias rollback!="rake db:rollback"
 alias migrate!="rake db:migrate"
 
 alias cpdatabase="cp config/database.example.yml config/database.yml"
-
-function rm() {
-  mv $1 ~/.Trash
-}
+alias rm="rm -i"
 
 function rails_new() {
   rails new $1 -T -B -d=postgresql &&
