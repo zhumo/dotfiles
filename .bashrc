@@ -5,6 +5,7 @@ export PS1="\[\e[33m\]\u@\W -\[\e[0m\] "
 
 export EDITOR=vim
 
+alias rm="rm -i"
 alias gcm="git commit -m"
 alias gs="git status"
 alias gh="git hist"
@@ -20,7 +21,6 @@ alias rollback!="rake db:rollback"
 alias migrate!="rake db:migrate"
 
 alias cpdatabase="cp config/database.example.yml config/database.yml"
-alias rm="rm -i"
 
 function rails_new() {
   rails new $1 -T -B -d=postgresql &&
@@ -39,7 +39,8 @@ function rails_new() {
   rails generate rspec:install &&
   echo "require 'capybara/rspec'" >> spec/spec_helper.rb &&
   mv config/database.yml config/database.example.yml &&
-#  fix_database_config_file $1 && # See below for the function. Still needs work.
+  fix_database_example_yml_file $1 && 
+  cpdatabase &&
   create_folders &&
   echo "config/database.yml" >> .gitignore &&
   git_init_add_commit
@@ -107,8 +108,8 @@ function convert_filename_to_camelcase() {
   echo -n $1 | ruby -e "print STDIN.gets.split('_').map(&:capitalize).join"
 }
 
-function fix_database_config_file() {
-  ruby -e "File.read('config/database.yml').gsub!(/ #{system($1)}$/,'')" > config/database.yml
+function fix_database_example_yml_file() {
+  sed -i '' "s/\(username:\) $1/\1/" config/database.example.yml
 }
 
 function create_folders() {
