@@ -27,21 +27,23 @@ function rails_new() {
   cd $1 &&
   echo "populating gemfiles" &&
   populate_gemfile &&
-  cd .. && cd $1 &&
   echo "populating ruby gemset file" &&
   populate_ruby_gemset_file $1 &&
   echo "populating ruby version file" &&
   populate_ruby_version_file &&
+  cd .. && cd $1 &&
   echo "completing secret token process" &&
   secret_token_process $1 &&
   bundle install &&
   echo "installing rspec" &&
   rails generate rspec:install &&
   echo "require 'capybara/rspec'" >> spec/spec_helper.rb &&
+  echo "creating folders for specs and factories" &&
+  create_folders &&
+  echo "copying and fixing database.yml file"
   mv config/database.yml config/database.example.yml &&
   fix_database_example_yml_file $1 && 
   cpdatabase &&
-  create_folders &&
   echo "config/database.yml" >> .gitignore &&
   git_init_add_commit
 }
