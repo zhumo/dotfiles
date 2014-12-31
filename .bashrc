@@ -11,6 +11,7 @@ alias gcm="git commit -m"
 alias gbr="git branch"
 alias gdiff="git diff"
 alias gaa="git add -A"
+alias gco="git checkout"
 
 alias mrmt="rake db:migrate && rake db:rollback && rake db:migrate && rake db:test:prepare"
 alias mrm="rake db:migrate && rake db:rollback && rake db:migrate"
