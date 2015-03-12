@@ -1,4 +1,3 @@
-let mapleader=" "
 filetype off
 
 set rtp+=~/.vim/bundle/vundle/
@@ -13,6 +12,7 @@ Bundle 'Lokaltog/vim-distinguished'
 Bundle 'mkitt/tabline.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'godlygeek/tabular'
+Bundle 'shime/vim-livedown'
 
 "In the bottom of the screen, it will show me the XY coordinates of my cursor
 set ruler
@@ -43,6 +43,8 @@ set showcmd
 set incsearch
 "search terms stay highlighted after you hit enter
 set hlsearch
+
+map <space> <leader>
 "get rid of highlighting after you are done with searching
 map <leader>h :nohlsearch<cr>
 
