@@ -10,3 +10,6 @@ export POW_DOMAINS=dev,text,local
 source ~/.bashrc
 source ~/.profile
 export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
+
+# added by Anaconda 2.1.0 installer
+export PATH="//anaconda/bin:$PATH"
