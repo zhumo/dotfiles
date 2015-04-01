@@ -1,18 +1,21 @@
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
-Bundle 'kien/ctrlp.vim'
-Bundle 'thoughtbot/vim-rspec'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-endwise'
-Bundle 'Lokaltog/vim-distinguished'
-Bundle 'mkitt/tabline.vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'godlygeek/tabular'
-Bundle 'shime/vim-livedown'
+Plugin 'gmarik/vundle'
+Plugin 'kien/ctrlp.vim'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-endwise'
+Plugin 'Lokaltog/vim-distinguished'
+Plugin 'mkitt/tabline.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'godlygeek/tabular'
+Plugin 'shime/vim-livedown'
+
+call vundle#end()
+filetype plugin indent on
 
 "In the bottom of the screen, it will show me the XY coordinates of my cursor
 set ruler
