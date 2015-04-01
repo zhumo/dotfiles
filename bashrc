@@ -23,3 +23,16 @@ alias migrate!="rake db:migrate"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+### Jobcase
+alias starteu='bundle exec rails s -p 3009 -b 127.0.0.1'
+alias startfr='rails s -p 3001 -b 127.0.0.1'
+alias startjc='rails s -p 3030 -b 127.0.0.1'
+alias startjc-a='rails s -p 3031 -b 127.0.0.1'
+alias startapi='rails s -p 3050 -b 127.0.0.1'
+alias startjc-s='rails s -p 3020 -b 127.0.0.1'
+alias startjr="ruby script/server -b 127.0.0.1 -p 3000"
+alias startjr2="ruby script/server -b 127.0.0.1 -p 3006"
+alias startjiz='rails s -p 3002 -b 127.0.0.1'
+alias bcon='~/bundle_config_on.sh'
+alias bcoff='~/bundle_config_off.sh'
