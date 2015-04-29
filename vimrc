@@ -19,7 +19,7 @@ filetype plugin indent on
 
 "In the bottom of the screen, it will show me the XY coordinates of my cursor
 set ruler
-set rulerformat=%40((column:%c\ line:%l)\ %t%)
+set rulerformat=%60(%f:%l\ of\ %L%)
 
 "Highlight cursor line
 set cursorline
