@@ -1,0 +1,34 @@
+unmap <c-e>
+unmap <c-y>
+unmap d
+unmap u
+map <c-b> scrollFullPageUp
+map <c-f> scrollFullPageDown
+unmap r
+map R reload
+unmap gs
+unmap p
+unmap P
+unmap gu
+unmap gU
+unmap i
+unmap v
+unmap V
+unmap gi
+unmap <a-f>
+unmap [[
+unmap ]]
+unmap gf
+unmap gF
+unmap ge
+unmap gE
+unmap H
+unmap L
+map <c-J> goBack
+map <c-K> goForward
+unmap gt
+unmap gT
+unmap g0
+unmap g$
+unmap yt
+unmap <a-p>
