@@ -2,7 +2,7 @@
 
 echo "Starting script..."
 for source_file in *; do
-  if [ $source_file != 'symlink_script.sh' ]; then
+  if [ $source_file != 'symlink_script.sh' ] && [ $source_file != 'vimium' ]; then
     echo "Linking ~/.$source_file to $PWD/$source_file"
     ln -svfi "$PWD/$source_file" "$HOME/.$source_file"
   fi
