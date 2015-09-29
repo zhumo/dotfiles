@@ -11,7 +11,6 @@ Plugin 'tpope/vim-endwise'
 Plugin 'Lokaltog/vim-distinguished'
 Plugin 'mkitt/tabline.vim'
 Plugin 'tpope/vim-fugitive'
-Plugin 'ervandrew/supertab'
 Plugin 'slim-template/vim-slim'
 
 call vundle#end()
