@@ -24,7 +24,7 @@ Comment
 
 echo "Cloning vundle into ~/.vim"
 echo "If vundle already exists in ~/.vim, then this will give a failure message."
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/Vundle.vim
 
 echo "Script done."
 echo "Next when you open vim, run the command :BundleInstall to install the plugins."
