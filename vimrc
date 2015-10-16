@@ -173,3 +173,7 @@ map :wQ<cr> :wq<cr>
 map<S-Tab> gT
 map<tab> gt
 map<leader><tab> :Texplore<cr>
+
+" Easy access to beginning of line and end of line
+map<leader>B ^
+map<leader>E $

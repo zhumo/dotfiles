@@ -4,7 +4,6 @@ export HISTSIZE=10000
 shopt -s histappend
 EVENT_NOKQUEUE=yes
 eval "$(hub alias -s)"
-[ -s "$HOME/.rvm/scripts/rvm" ] && source "$HOME/.rvm/scripts/rvm"
 [ -e "$HOME/.bashrc" ] && source $HOME/.bashrc
 export POW_DOMAINS=dev,text,local
 source ~/.bashrc

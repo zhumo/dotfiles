@@ -1,5 +1,3 @@
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
 export PS1="\[\e[33m\]\u@\W ☞\[\e[0m\]  "
 
 export EDITOR=vim
