@@ -1,7 +1,11 @@
+"separates vim from vi, allowing the many customizations found in vim
+set nocompatible
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'gmarik/vundle'
 Plugin 'kien/ctrlp.vim'
@@ -15,6 +19,7 @@ Plugin 'slim-template/vim-slim'
 
 call vundle#end()
 filetype plugin indent on
+au BufNewFile,BufRead *.prawn set filetype=ruby
 
 "In the bottom of the screen, it will show me the XY coordinates of my cursor
 set ruler
@@ -26,9 +31,6 @@ set cursorline
 "New panes should open below and to the right, which is more intuitive
 set splitbelow
 set splitright
-
-"separates vim from vi, allowing the many customizations found in vim
-set nocompatible
 
 "prevents vim from creating a separate backup file.
 set nobackup
