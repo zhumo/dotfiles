@@ -179,3 +179,6 @@ map<leader><tab> :Texplore<cr>
 " Easy access to beginning of line and end of line
 map<leader>B ^
 map<leader>E $
+
+"allow vim-rspec to run with spring
+let g:rspec_command = "!bin/rspec {spec}"
