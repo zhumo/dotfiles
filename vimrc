@@ -3,6 +3,7 @@ set nocompatible
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
+" run :PluginInstall to ... duh.
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
@@ -16,14 +17,20 @@ Plugin 'Lokaltog/vim-distinguished'
 Plugin 'mkitt/tabline.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'slim-template/vim-slim'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'posva/vim-vue'
+Plugin 'digitaltoad/vim-pug'
+Plugin 'slime-lang/vim-slime-syntax'
 
 call vundle#end()
 filetype plugin indent on
 au BufNewFile,BufRead *.prawn set filetype=ruby
+au BufNewFile,BufRead *.json.jbuilder set filetype=ruby
+au BufNewFile,BufRead *.axlsx set filetype=ruby
 
 "In the bottom of the screen, it will show me the XY coordinates of my cursor
 set ruler
-set rulerformat=%60(%f:%l\ of\ %L%)
+set rulerformat='%60(%f:%l\ of\ %L%)'
 
 "Highlight cursor line
 set cursorline
@@ -57,7 +64,7 @@ map <leader>h :nohlsearch<cr>
 set ignorecase
 set smartcase
 
-"there will always be 2 lines of context above and below your cursor.
+"there will always be X lines of context above and below your cursor.
 set scrolloff=10
 
 "tab increments by two spaces
@@ -125,7 +132,7 @@ let g:netrw_liststyle=3
 
 "map <leader>k :NERDTreeToggle<cr>
 "let NERDTreeShowHidden=1
-map <leader>k :E<cr>
+map <leader>k :Ex<cr>
 
 set t_Co=256
 color distinguished
@@ -181,4 +188,7 @@ map<leader>B ^
 map<leader>E $
 
 "allow vim-rspec to run with spring
-let g:rspec_command = "!bin/rspec {spec}"
+let g:rspec_command = "!bundle exec rspec {spec}"
+
+" Ignore certains directories for ctrl-p
+let g:ctrlp_custom_ignore= 'deps\|node_modules'
