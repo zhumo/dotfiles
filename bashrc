@@ -28,3 +28,6 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # Go
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+
+# Vimming
+alias v="vim"
