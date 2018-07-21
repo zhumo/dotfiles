@@ -1,5 +1,6 @@
 [core]
   excludesfile = ~/.gitignore_global
+
 [user]
   name = Mo Zhu
   email = mozhu888@gmail.com

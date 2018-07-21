@@ -143,6 +143,9 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
+"open up todo file
+map <Leader>o :e .todo<CR>
+
 "backspace deletes characters
 map <backspace> X
 
