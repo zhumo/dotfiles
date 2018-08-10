@@ -3,12 +3,17 @@ export PS1="\[\e[33m\]\u@\W ☞\[\e[0m\]  "
 export EDITOR=vim
 export PYTHONPATH="/usr/local/lib/python:/usr/local/lib/python/site-packages:/usr/local/lib/python/site-packages/caption_positioning:/usr/local/lib/python/site-packages/dsptools:$PYTHONPATH"
 
+alias dc="docker-compose"
+alias dcr="dc run"
+alias dcra="dcr app"
+
 alias rm="rm -i"
 alias gh="git hist"
 alias gs="git status"
 alias gcm="git commit -m"
 alias gbr="git branch"
 alias gd="git diff"
+alias gds="git diff --staged"
 alias gaa="git add -A"
 alias gco="git checkout"
 alias ls="ls -alF"
