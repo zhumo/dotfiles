@@ -4,6 +4,10 @@ export EDITOR=vim
 export PYTHONPATH="/usr/local/lib/python:/usr/local/lib/python/site-packages:/usr/local/lib/python/site-packages/caption_positioning:/usr/local/lib/python/site-packages/dsptools:$PYTHONPATH"
 
 alias dc="docker-compose"
+alias dcs="dc stop"
+alias dcrs="dc restart"
+alias dcb="dc build"
+alias dcu="dc up"
 alias dcr="dc run"
 alias dcra="dcr app"
 
