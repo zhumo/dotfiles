@@ -1,4 +1,4 @@
-export PATH=/usr/local/git/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:~/bin:$PATH
+export PATH=~/Library/Python/2.7/bin:/usr/local/git/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:~/bin:$PATH
 export HISTCONTROL=erasedups
 export HISTSIZE=10000
 shopt -s histappend
@@ -15,3 +15,6 @@ export PATH="//anaconda/bin:$PATH"
 
 #init rbenv
 eval "$(rbenv init -)"
+
+# added by Anaconda2 installer
+export PATH="/Users/mozhu/anaconda2/bin:$PATH"
