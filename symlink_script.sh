@@ -8,20 +8,6 @@ for source_file in *; do
   fi
 done
 
-<<Comment
-#WHEN IN DOUBT, UNCOMMENT THIS!
-ln -svfi ~/Dropbox/dotfiles/.bashrc ~/
-ln -svfi ~/Dropbox/dotfiles/.vimrc ~/
-ln -svfi ~/Dropbox/dotfiles/.bash_profile ~/
-ln -svfi ~/Dropbox/dotfiles/.gemrc ~/
-ln -svfi ~/Dropbox/dotfiles/.gitconfig ~/
-ln -svfi ~/Dropbox/dotfiles/.irbrc ~/
-ln -svfi ~/Dropbox/dotfiles/.profile ~/
-ln -svfi ~/Dropbox/dotfiles/.pryrc ~/
-ln -svfi ~/Dropbox/dotfiles/.rspec ~/
-Comment
-
-
 echo "Cloning vundle into ~/.vim"
 echo "If vundle already exists in ~/.vim, then this will give a failure message."
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/Vundle.vim
