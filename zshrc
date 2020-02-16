@@ -1,4 +1,4 @@
-export PS1="\[\e[33m\]\u@\W ☞\[\e[0m\]  "
+export PS1="%F{yellow}%n@%1~ =>%f  "
 
 export EDITOR=vim
 export PYTHONPATH="/usr/local/lib/python:/usr/local/lib/python/site-packages:/usr/local/lib/python/site-packages/caption_positioning:/usr/local/lib/python/site-packages/dsptools:$PYTHONPATH"
