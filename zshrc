@@ -40,5 +40,3 @@ export PATH=$PATH:$GOPATH/bin
 
 # Vimming
 alias v="vim"
-
-export PGDATA="/usr/local/var/postgres"
