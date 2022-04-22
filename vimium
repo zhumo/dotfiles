@@ -50,3 +50,13 @@ map <c-w> moveTabToNewWindow
 
 map < previousTab
 map > nextTab
+
+unmap t
+map <c-t> createTab
+unmap T
+
+map o Vomnibar.activateInNewTab
+map O Vomnibar.activate
+
+map b Vomnibar.activateBookmarksInNewTab
+map B Vomnibar.activateBookmarks
