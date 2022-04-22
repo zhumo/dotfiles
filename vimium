@@ -2,11 +2,10 @@ unmap <c-e>
 unmap <c-y>
 unmap d
 unmap u
-map <c-b> scrollFullPageUp
-map <c-f> scrollFullPageDown
+map K scrollFullPageUp
+map J scrollFullPageDown
 unmap r
-map R reload
-unmap gs
+unmap yy
 unmap p
 unmap P
 unmap gu
@@ -22,13 +21,32 @@ unmap gf
 unmap gF
 unmap ge
 unmap gE
-unmap H
-unmap L
-map <c-J> goBack
-map <c-K> goForward
+unmap /
+unmap n
+unmap N
+unmap zH
+map H scrollToLeft
+map <c-h> goBack
+unmap zL
+map L scrollToRight
+map <c-l> goForward
 unmap gt
 unmap gT
 unmap g0
 unmap g$
 unmap yt
 unmap <a-p>
+unmap <a-m>
+unmap <<
+unmap >>
+
+unmap ^
+unmap x
+map <c-x> removeTab
+unmap X
+map <c-X> restoreTab
+unmap W
+map <c-w> moveTabToNewWindow
+
+map < previousTab
+map > nextTab
