@@ -15,3 +15,5 @@
   showPatch = true
 [credential]
   helper = osxkeychain
+[init]
+	defaultBranch = master
