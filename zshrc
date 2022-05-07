@@ -40,3 +40,5 @@ export PATH=$PATH:$GOPATH/bin
 
 # Vimming
 alias v="vim"
+
+eval "$(rbenv init - zsh)"
