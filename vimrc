@@ -133,11 +133,6 @@ set t_Co=256
 color distinguished
 set noerrorbells
 
-"mapping for vim-rspec
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
-
 "open up todo file
 map <Leader>o :e .todo<CR>
 
@@ -180,13 +175,6 @@ map :wQ<cr> :wq<cr>
 map<S-Tab> gT
 map<tab> gt
 map<leader><tab> :Texplore<cr>
-
-" Easy access to beginning of line and end of line
-map<leader>B ^
-map<leader>E $
-
-"allow vim-rspec to run with spring
-let g:rspec_command = "!bundle exec rspec {spec}"
 
 " Ignore certains directories for ctrl-p
 let g:ctrlp_custom_ignore= 'deps\|node_modules'
