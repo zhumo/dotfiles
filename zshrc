@@ -1,6 +1,8 @@
 export PS1="%F{yellow}%n@%1~ =>%f  "
 
-export EDITOR=vim
+export EDITOR=nvim
+alias vim="nvim"
+
 export PYTHONPATH="/usr/local/lib/python:/usr/local/lib/python/site-packages:/usr/local/lib/python/site-packages/caption_positioning:/usr/local/lib/python/site-packages/dsptools:$PYTHONPATH"
 
 alias dc="docker-compose"
