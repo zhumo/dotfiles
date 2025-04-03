@@ -85,35 +85,24 @@ set nowrap
 "Create ruler, with width of 1
 set numberwidth=1
 
+
+"set line numbers to be relative by default
+set relativenumber
+set number
+
 "create function that turns line numbers on and off
 function! ToggleLineNumbers()
-  if(&relativenumber == 1)
+  if(&relativenumber == 1 && &number == 1)
+    set nonumber
     set norelativenumber
   else
-    if(&number == 1)
-      set nonumber
-    else
-      set relativenumber
-    endif
+    set number
+    set relativenumber
   endif
 endfunction
 
 "set toggle line numbers
-map <leader>p :call ToggleLineNumbers()<cr>
-
-"set line numbers to be relative by default
-set relativenumber
-
-"create function that switches between relative and absolute line numbers
-function! RelativeNumberToggle()
-  if(&relativenumber == 1)
-   set number
-  else
-    set relativenumber
-  endif
-endfunc
-
-map <leader>r :call RelativeNumberToggle()<cr>
+map <leader>l :call ToggleLineNumbers()<cr>
 
 "set auto indentation
 set autoindent
