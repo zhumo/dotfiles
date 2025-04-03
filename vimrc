@@ -10,17 +10,12 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'gmarik/vundle'
 Plugin 'kien/ctrlp.vim'
-Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-endwise'
 Plugin 'Lokaltog/vim-distinguished'
 Plugin 'mkitt/tabline.vim'
 Plugin 'tpope/vim-fugitive'
-Plugin 'slim-template/vim-slim'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'posva/vim-vue'
 Plugin 'digitaltoad/vim-pug'
-Plugin 'slime-lang/vim-slime-syntax'
 
 call vundle#end()
 filetype plugin indent on
