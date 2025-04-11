@@ -12,10 +12,11 @@ Plugin 'gmarik/vundle'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-endwise'
-Plugin 'Lokaltog/vim-distinguished'
 Plugin 'mkitt/tabline.vim'
 Plugin 'tpope/vim-fugitive'
-Plugin 'digitaltoad/vim-pug'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'Lokaltog/vim-distinguished'
+Plugin 'morhetz/gruvbox'
 
 call vundle#end()
 filetype plugin indent on
@@ -119,7 +120,7 @@ let g:netrw_liststyle=3
 map <leader>k :Ex<cr>
 
 set t_Co=256
-color distinguished
+color gruvbox
 set noerrorbells
 
 "open up todo file
@@ -167,3 +168,6 @@ map<leader><tab> :Texplore<cr>
 
 " Ignore certains directories for ctrl-p
 let g:ctrlp_custom_ignore= 'deps\|node_modules'
+
+" Capital Y should be yanking the whole line
+map Y yy
