@@ -33,3 +33,11 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
 eval "$(rbenv init - zsh)"
+
+# Added by Windsurf
+export PATH="/Users/mozhu/.codeium/windsurf/bin:$PATH"
+
+. "$HOME/.local/bin/env"
+
+### proxying claude code to other AI providers via https://github.com/1rgs/claude-code-proxy
+### export ANTHROPIC_BASE_URL="http://localhost:8082"
