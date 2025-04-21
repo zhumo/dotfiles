@@ -171,3 +171,4 @@ let g:ctrlp_custom_ignore= 'deps\|node_modules'
 
 " Capital Y should be yanking the whole line
 map Y yy
+xnoremap Y :yank<cr>
