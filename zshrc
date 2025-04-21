@@ -39,5 +39,9 @@ export PATH="/Users/mozhu/.codeium/windsurf/bin:$PATH"
 
 . "$HOME/.local/bin/env"
 
-### proxying claude code to other AI providers via https://github.com/1rgs/claude-code-proxy
-### export ANTHROPIC_BASE_URL="http://localhost:8082"
+# Load local secrets in .zshrc.local
+if [ -f "${HOME}/.zshrc.local" ]; then
+  source "${HOME}/.zshrc.local"
+else
+  echo "Warning: ${HOME}/.zshrc.local not found. Copy zshrc.local.example → ~/.zshrc.local." >&2
+fi

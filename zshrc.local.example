@@ -1,0 +1,12 @@
+# Local environment variables (not committed)
+# Copy this file to ~/.zshrc.local and set your OpenAI API key
+
+
+# For OpenAI codex https://github.com/openai/codex
+export OPENAI_API_KEY="your_api_key_here"
+
+# For Anthropic Claude Code
+### proxying claude code to other AI providers via https://github.com/1rgs/claude-code-proxy
+### export ANTHROPIC_BASE_URL="http://localhost:8082"
+
+
