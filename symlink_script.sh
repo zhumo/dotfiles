@@ -8,6 +8,12 @@ for source_file in *; do
   fi
 done
 
+echo "Creating claude directory if it doesn't exist"
+mkdir -p "$HOME/.claude"
+
+echo "Linking ~/.claude/CLAUDE.md to $PWD/claude"
+ln -svfi "$PWD/claude" "$HOME/.claude/CLAUDE.md"
+
 echo "Cloning vundle into ~/.vim"
 echo "If vundle already exists in ~/.vim, then this will give a failure message."
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/Vundle.vim
