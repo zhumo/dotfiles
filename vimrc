@@ -24,6 +24,9 @@ au BufNewFile,BufRead *.prawn set filetype=ruby
 au BufNewFile,BufRead *.json.jbuilder set filetype=ruby
 au BufNewFile,BufRead *.axlsx set filetype=ruby
 
+" Enable text wrapping for Markdown files
+au BufNewFile,BufRead *.md set wrap
+
 "In the bottom of the screen, it will show me the XY coordinates of my cursor
 set ruler
 set rulerformat='%60(%f:%l\ of\ %L%)'
