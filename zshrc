@@ -38,10 +38,3 @@ eval "$(rbenv init - zsh)"
 export PATH="/Users/mozhu/.codeium/windsurf/bin:$PATH"
 
 . "$HOME/.local/bin/env"
-
-# Load local secrets in .zshrc.local
-if [ -f "${HOME}/.zshrc.local" ]; then
-  source "${HOME}/.zshrc.local"
-else
-  echo "Warning: ${HOME}/.zshrc.local not found. Copy zshrc.local.example → ~/.zshrc.local." >&2
-fi
