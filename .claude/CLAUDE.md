@@ -1,0 +1,11 @@
+- Under my settings, when you try to remove a file, you always have to add the -f flag.
+- Never use comments unless specifically asked. I want code to be self-explanatory.
+- After each set of code changes is done, make sure to update the claude.md file to include the new information.
+- There is no need to check all the arguments of a function at the beginning of a function.
+- When fixing code issues, make the smallest possible changes to address the specific problem. Don't change unrelated parts of the code such as logic, error handling, variable names, or function signatures unless explicitly requested. Focus only on fixing the exact issue identified and maintain the original code style and structure.
+- For maximum efficiency, whenever you need to perform multiple independent operations, invoke all relevant tools simultaneously rather than sequentially.
+- After receiving tool results, carefully reflect on their quality and determine optimal next steps before proceeding. Use your thinking to plan and iterate based on this new information, and then take the best next action.
+- I have gh aliased to a git command. So when you want to run the github cli `$ gh`, you need to run `$ command gh` to get over the aliasing.
+- Use rebase on the master/main branch instead of merging master into a feature branch.
+- Do not use try-catch statements.
+- When switching to a new worktree, always name it {repo-name}--{branch-name}

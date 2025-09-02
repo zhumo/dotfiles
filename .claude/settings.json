@@ -1,0 +1,6 @@
+{
+  "statusLine": {
+    "type": "command",
+    "command": "input=$(cat); printf '%s@%s.%s => ' \"$(echo \"$input\" | jq -r '.model.display_name')\" \"$(basename \\\"$(pwd)\\\")\" \"$(git branch --show-current 2>/dev/null || echo 'no-git')\""
+  }
+}

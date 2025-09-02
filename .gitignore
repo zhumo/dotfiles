@@ -1,1 +1,6 @@
 zshrc.local
+
+.claude/projects
+.claude/todos
+.claude/statsig
+.claude/shell-snapshots

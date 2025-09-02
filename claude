@@ -1,3 +1,0 @@
-- Under my settings, when you try to remove a file, you always have to add the -f flag.
-- Never use comments unless specifically asked. I want code to be self-explanatory.
-- After each set of code changes is done, make sure to update the claude.md file to include the new information.
