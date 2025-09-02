@@ -119,6 +119,9 @@ set startofline
 "set default explorer style to be tree
 let g:netrw_liststyle=3
 
+"hide DS_Store files in netrw
+let g:netrw_list_hide='.*\.DS_Store$'
+
 "map <leader>k :NERDTreeToggle<cr>
 "let NERDTreeShowHidden=1
 map <leader>k :Ex<cr>
