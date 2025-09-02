@@ -1,11 +1,10 @@
 #! /bin/bash
 
 echo "Starting script..."
-for source_file in *; do
-  if [ $source_file != 'symlink_script.sh' ] && [ $source_file != 'vimium' ] && [ $source_file != 'zshrc.local.example' ]; then
-    echo "Linking ~/.$source_file to $PWD/$source_file"
-    ln -svfi "$PWD/$source_file" "$HOME/.$source_file"
-  fi
+for source_file in shell/*; do
+  filename=$(basename "$source_file")
+  echo "Linking ~/.$filename to $PWD/$source_file"
+  ln -svfi "$PWD/$source_file" "$HOME/.$filename"
 done
 
 echo "Creating claude directory if it doesn't exist"
