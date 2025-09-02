@@ -26,6 +26,7 @@ au BufNewFile,BufRead *.axlsx set filetype=ruby
 
 " Enable text wrapping for Markdown files
 au BufNewFile,BufRead *.md set wrap
+au BufNewFile,BufRead *.txt set wrap
 
 "In the bottom of the screen, it will show me the XY coordinates of my cursor
 set ruler
