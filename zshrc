@@ -1,4 +1,27 @@
-export PS1="%F{yellow}%n@%1~ =>%f  "
+autoload -Uz vcs_info
+setopt prompt_subst
+
+# Enable Git. VCS_info detects git branch and dirty state
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:git*' check-for-changes true
+
+# output format should be .branch-name and * if dirty. Dirty signified by the misc marker %m
+zstyle ':vcs_info:git*' formats '.%b%m'
+zstyle ':vcs_info:git*' actionformats '.%b%m'
+
+# set %m to "*" if staged/unstaged changes or an active action (e.g. rebase/cherry-pick/bissect, etc.)
++vi-git-dirty-star() {
+  if [[ -n ${hook_com[staged]} || -n ${hook_com[unstaged]} || -n ${hook_com[action]} ]]; then
+    hook_com[misc]='*'
+  else
+    hook_com[misc]=''
+  fi
+}
+zstyle ':vcs_info:git*+set-message:*' hooks git-dirty-star
+
+precmd() { vcs_info }
+
+export PS1="%F{yellow}%n@%1~\${vcs_info_msg_0_} =>%f  "
 
 export EDITOR=nvim
 alias vim="nvim"
