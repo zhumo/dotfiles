@@ -61,3 +61,6 @@ eval "$(rbenv init - zsh)"
 export PATH="/Users/mozhu/.codeium/windsurf/bin:$PATH"
 
 . "$HOME/.local/bin/env"
+
+# Added by Antigravity
+export PATH="/Users/mozhu/.antigravity/antigravity/bin:$PATH"
