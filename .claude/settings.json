@@ -1,19 +1,29 @@
 {
-  "statusLine": {
-    "type": "command",
-    "command": "~/.claude/status_line.sh"
-  },
   "permissions": {
     "allow": [
       "Bash(git push:*)",
       "Bash(git fetch:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
+      "Bash(git checkout:*)",
+      "Bash(git worktree:*)",
       "Bash(ls:*)",
       "Bash(mkdir:*)",
       "Bash(mv:*)",
       "Bash(cp:*)",
-      "Read(/Users/mozhu/.claude/**)"
-    ]
-  }
+      "Read(/Users/mozhu/.claude/**)",
+      "WebSearch",
+      "Bash(bundle install:*)",
+      "Bash(rails generate:*)"
+    ],
+    "deny": [],
+    "ask": [],
+    "defaultMode": "default"
+  },
+  "model": "opus",
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/status_line.sh"
+  },
+  "alwaysThinkingEnabled": false
 }

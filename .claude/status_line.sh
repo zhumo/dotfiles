@@ -10,11 +10,11 @@ if git rev-parse --git-dir >/dev/null 2>&1; then
     if git diff --quiet --exit-code 2>/dev/null && git diff --cached --quiet --exit-code 2>/dev/null; then
         dirty=""
     else
-        dirty="*"
+        dirty="(*)"
     fi
-    git_info=".${branch}${dirty}"
+    git_info=".${branch} ${dirty}"
 else
     git_info=""
 fi
 
-printf '\033[33m%s@%s%s =>\033[0m  ' "$model_name" "$dir" "$git_info"
+printf '\033[36m%s @ %s%s\033[0m  ' "$model_name" "$dir" "$git_info"
