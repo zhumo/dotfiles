@@ -7,6 +7,7 @@
       "Bash(git commit:*)",
       "Bash(git checkout:*)",
       "Bash(git worktree:*)",
+      "Bash(git branch:*)",
       "Bash(command gh:*)",
       "Bash(grep:*)",
       "Bash(cat:*)",
@@ -15,7 +16,6 @@
       "Bash(mv:*)",
       "Bash(cp:*)",
       "Bash(cd:*)",
-      "Read(/Users/mozhu/.claude/**)",
       "WebSearch",
       "Bash(bundle install:*)",
       "Bash(rails generate:*)"
