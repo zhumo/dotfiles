@@ -21,7 +21,9 @@
       "Bash(rails generate:*)"
     ],
     "deny": [],
-    "ask": [],
+    "ask": [
+      "Bash(git merge:*)"
+    ],
     "defaultMode": "default"
   },
   "model": "opus",
