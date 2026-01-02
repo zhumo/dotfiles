@@ -8,6 +8,7 @@
       "Bash(git checkout:*)",
       "Bash(git worktree:*)",
       "Bash(git branch:*)",
+      "Bash(git rebase:*)",
       "Bash(command gh:*)",
       "Bash(grep:*)",
       "Bash(cat:*)",
