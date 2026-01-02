@@ -7,6 +7,9 @@
       "Bash(git commit:*)",
       "Bash(git checkout:*)",
       "Bash(git worktree:*)",
+      "Bash(command gh:*)",
+      "Bash(grep:*)",
+      "Bash(cat:*)",
       "Bash(ls:*)",
       "Bash(mkdir:*)",
       "Bash(mv:*)",
@@ -26,5 +29,17 @@
     "type": "command",
     "command": "~/.claude/status_line.sh"
   },
-  "alwaysThinkingEnabled": false
+  "alwaysThinkingEnabled": false,
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/send-usage-data.py"
+          }
+        ]
+      }
+    ]
+  }
 }
