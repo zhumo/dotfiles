@@ -1,0 +1,104 @@
+{
+  "version": 2,
+  "plugins": {
+    "frontend-design@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/mozhu/.claude/plugins/cache/claude-plugins-official/frontend-design/15b07b46dab3",
+        "version": "15b07b46dab3",
+        "installedAt": "2026-01-05T05:57:33.552Z",
+        "lastUpdated": "2026-01-05T19:03:24.378Z",
+        "gitCommitSha": "5975f60b8115571ca484e3a1faf5a1152b264e18",
+        "isLocal": true
+      }
+    ],
+    "context7@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/mozhu/.claude/plugins/cache/claude-plugins-official/context7/15b07b46dab3",
+        "version": "15b07b46dab3",
+        "installedAt": "2026-01-05T05:57:33.591Z",
+        "lastUpdated": "2026-01-05T19:03:24.386Z",
+        "gitCommitSha": "5975f60b8115571ca484e3a1faf5a1152b264e18",
+        "isLocal": true
+      }
+    ],
+    "github@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/mozhu/.claude/plugins/cache/claude-plugins-official/github/15b07b46dab3",
+        "version": "15b07b46dab3",
+        "installedAt": "2026-01-05T05:57:33.624Z",
+        "lastUpdated": "2026-01-05T19:03:24.392Z",
+        "gitCommitSha": "5975f60b8115571ca484e3a1faf5a1152b264e18",
+        "isLocal": true
+      }
+    ],
+    "feature-dev@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/mozhu/.claude/plugins/cache/claude-plugins-official/feature-dev/15b07b46dab3",
+        "version": "15b07b46dab3",
+        "installedAt": "2026-01-05T05:57:33.653Z",
+        "lastUpdated": "2026-01-05T19:03:24.399Z",
+        "gitCommitSha": "5975f60b8115571ca484e3a1faf5a1152b264e18",
+        "isLocal": true
+      }
+    ],
+    "code-review@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/mozhu/.claude/plugins/cache/claude-plugins-official/code-review/15b07b46dab3",
+        "version": "15b07b46dab3",
+        "installedAt": "2026-01-05T05:57:33.682Z",
+        "lastUpdated": "2026-01-05T19:03:24.406Z",
+        "gitCommitSha": "5975f60b8115571ca484e3a1faf5a1152b264e18",
+        "isLocal": true
+      }
+    ],
+    "commit-commands@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/mozhu/.claude/plugins/cache/claude-plugins-official/commit-commands/15b07b46dab3",
+        "version": "15b07b46dab3",
+        "installedAt": "2026-01-05T05:57:33.715Z",
+        "lastUpdated": "2026-01-05T19:03:24.414Z",
+        "gitCommitSha": "5975f60b8115571ca484e3a1faf5a1152b264e18",
+        "isLocal": true
+      }
+    ],
+    "ralph-wiggum@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/mozhu/.claude/plugins/cache/claude-plugins-official/ralph-wiggum/15b07b46dab3",
+        "version": "15b07b46dab3",
+        "installedAt": "2026-01-05T05:57:33.745Z",
+        "lastUpdated": "2026-01-05T19:03:24.421Z",
+        "gitCommitSha": "5975f60b8115571ca484e3a1faf5a1152b264e18",
+        "isLocal": true
+      }
+    ],
+    "plugin-dev@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/mozhu/.claude/plugins/cache/claude-plugins-official/plugin-dev/15b07b46dab3",
+        "version": "15b07b46dab3",
+        "installedAt": "2026-01-05T05:57:33.790Z",
+        "lastUpdated": "2026-01-05T19:03:24.439Z",
+        "gitCommitSha": "5975f60b8115571ca484e3a1faf5a1152b264e18",
+        "isLocal": true
+      }
+    ],
+    "hookify@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/mozhu/.claude/plugins/cache/claude-plugins-official/hookify/15b07b46dab3",
+        "version": "15b07b46dab3",
+        "installedAt": "2026-01-05T05:57:33.825Z",
+        "lastUpdated": "2026-01-05T19:03:24.450Z",
+        "gitCommitSha": "5975f60b8115571ca484e3a1faf5a1152b264e18",
+        "isLocal": true
+      }
+    ]
+  }
+}
