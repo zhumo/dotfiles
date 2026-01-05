@@ -1,11 +1,23 @@
-- Under my settings, when you try to remove a file, you always have to add the -f flag.
-- Never use comments unless specifically asked. I want code to be self-explanatory.
-- After each set of code changes is done, make sure to update the claude.md file to include the new information.
-- There is no need to check all the arguments of a function at the beginning of a function.
-- When fixing code issues, make the smallest possible changes to address the specific problem. Don't change unrelated parts of the code such as logic, error handling, variable names, or function signatures unless explicitly requested. Focus only on fixing the exact issue identified and maintain the original code style and structure.
-- After receiving tool results, carefully reflect on their quality and determine optimal next steps before proceeding. Use your thinking to plan and iterate based on this new information, and then take the best next action.
-- I have gh aliased to a git command. So when you want to run the github cli `$ gh`, you need to run `$ command gh` to get over the aliasing.
-- Use rebase on the master/main branch instead of merging master into a feature branch.
-- Do not use try-catch statements unless explicitly asked.
-- When switching to a new worktree, always name it {repo-name}--{branch-name}
-- before each time you propose to run a bash script, write out the purpose.
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Coding Preferences
+
+- Use `rm -f` flag when removing files
+- No comments unless specifically asked - code should be self-explanatory
+- No argument validation at function start
+- No try-catch unless explicitly asked
+- Make minimal changes when fixing issues - don't refactor unrelated code
+
+## Git Workflow
+
+- `gh` is aliased to `git hist`, so use `command gh` for GitHub CLI
+- Prefer rebase over merge when updating feature branches from master/main
+- Name worktrees as `{repo-name}--{branch-name}`
+
+## Process
+
+- Update CLAUDE.md after significant code changes
+- Write out purpose before running bash scripts
+- Reflect on tool results before proceeding
