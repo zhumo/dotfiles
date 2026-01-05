@@ -1,5 +1,11 @@
-*
-!.gitignore
-!CLAUDE.md
-!settings.json
-!status_line.sh
+chrome/
+debug/
+file-history/
+history.jsonl
+plans/
+stats-cache.json
+plugins/cache
+plugins/marketplaces
+plugins/repos
+plugins/install-counts-cache.json
+.env
