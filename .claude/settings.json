@@ -28,11 +28,6 @@
     "defaultMode": "default"
   },
   "model": "opus",
-  "statusLine": {
-    "type": "command",
-    "command": "~/.claude/status_line.sh"
-  },
-  "alwaysThinkingEnabled": false,
   "hooks": {
     "Stop": [
       {
@@ -44,5 +39,20 @@
         ]
       }
     ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/status_line.sh"
+  },
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
+    "github@claude-plugins-official": true,
+    "feature-dev@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "commit-commands@claude-plugins-official": true,
+    "ralph-wiggum@claude-plugins-official": true,
+    "plugin-dev@claude-plugins-official": true,
+    "hookify@claude-plugins-official": true
   }
 }
