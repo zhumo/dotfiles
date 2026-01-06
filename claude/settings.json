@@ -48,6 +48,16 @@
           }
         ]
       }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/send-usage-data.py"
+          }
+        ]
+      }
     ]
   },
   "statusLine": {
