@@ -7,11 +7,18 @@ for source_file in shell/*; do
   ln -svfi "$PWD/$source_file" "$HOME/.$filename"
 done
 
-echo "Creating claude directory if it doesn't exist"
+echo "Setting up ~/.claude config symlinks"
 mkdir -p "$HOME/.claude"
-
-echo "Linking ~/.claude/CLAUDE.md to $PWD/claude"
-ln -svfi "$PWD/claude" "$HOME/.claude/CLAUDE.md"
+for item in claude/*; do
+  name=$(basename "$item")
+  target="$HOME/.claude/$name"
+  if [ -d "$target" ] && [ ! -L "$target" ]; then
+    echo "Removing existing directory $target"
+    rm -rf "$target"
+  fi
+  echo "Linking ~/.claude/$name to $PWD/$item"
+  ln -svfi "$PWD/$item" "$target"
+done
 
 echo "Cloning vundle into ~/.vim"
 echo "If vundle already exists in ~/.vim, then this will give a failure message."
