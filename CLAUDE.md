@@ -24,3 +24,6 @@ Run `./symlink_script.sh` to create symlinks. The script:
 Shell config changes require reloading: `source ~/.zshrc`
 
 Vim changes require restarting vim or `:source ~/.vimrc`
+
+## Usage
+- Note that because the files are symlinked, you do not need to ask tool permission for files like ~/.claude/settings.json or ~/.zshrc. Instead, simply run the tool on the local version of those files claude/settings.json or shell/zshrc, respectively, for example.
