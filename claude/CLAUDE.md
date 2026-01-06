@@ -17,3 +17,7 @@
 - Update CLAUDE.md after significant code changes
 - Write out purpose before running bash scripts
 - Reflect on tool results before proceeding
+
+# Running Bash Commands
+- There is no need to cd into the local directory. Instead, first check your current working directory. If it is the repo's directory, then run the command. 
+- When running commands, unless there is a specific reason to combine stderr and stdout using `2>&1`, don't do it.
