@@ -29,6 +29,16 @@
   },
   "model": "opus",
   "hooks": {
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/protect-sensitive-files.rb"
+          }
+        ]
+      }
+    ],
     "Stop": [
       {
         "hooks": [
