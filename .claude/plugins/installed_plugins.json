@@ -23,17 +23,6 @@
         "isLocal": true
       }
     ],
-    "github@claude-plugins-official": [
-      {
-        "scope": "user",
-        "installPath": "/Users/mozhu/.claude/plugins/cache/claude-plugins-official/github/15b07b46dab3",
-        "version": "15b07b46dab3",
-        "installedAt": "2026-01-05T05:57:33.624Z",
-        "lastUpdated": "2026-01-05T19:03:24.392Z",
-        "gitCommitSha": "5975f60b8115571ca484e3a1faf5a1152b264e18",
-        "isLocal": true
-      }
-    ],
     "feature-dev@claude-plugins-official": [
       {
         "scope": "user",
@@ -97,6 +86,28 @@
         "installedAt": "2026-01-05T05:57:33.825Z",
         "lastUpdated": "2026-01-05T19:03:24.450Z",
         "gitCommitSha": "5975f60b8115571ca484e3a1faf5a1152b264e18",
+        "isLocal": true
+      }
+    ],
+    "agent-sdk-dev@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/mozhu/.claude/plugins/cache/claude-plugins-official/agent-sdk-dev/unknown",
+        "version": "unknown",
+        "installedAt": "2026-01-06T00:12:20.582Z",
+        "lastUpdated": "2026-01-06T00:12:20.582Z",
+        "gitCommitSha": "0e488fb1af4f8d15bead548f3320e27e7296e691",
+        "isLocal": true
+      }
+    ],
+    "pr-review-toolkit@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/mozhu/.claude/plugins/cache/claude-plugins-official/pr-review-toolkit/unknown",
+        "version": "unknown",
+        "installedAt": "2026-01-06T00:12:50.629Z",
+        "lastUpdated": "2026-01-06T00:12:50.629Z",
+        "gitCommitSha": "0e488fb1af4f8d15bead548f3320e27e7296e691",
         "isLocal": true
       }
     ]
