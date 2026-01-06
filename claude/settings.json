@@ -39,16 +39,27 @@
         ]
       }
     ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "if any changes were made, run the tests to ensure that everything still works. Fix any thing that is broken."
+          }
+        ]
+      }
+    ],
     "Stop": [
       {
         "hooks": [
           {
-            "type": "command",
-            "command": "~/.claude/hooks/send-usage-data.py"
-          },
-          {
             "type": "prompt",
             "prompt": "If you changed any front end UI, go use Chrome and look at what you change and decide if it looks good. If it does not, update it until you think it looks good to present to the user."
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/send-usage-data.py"
           }
         ]
       }
