@@ -1,14 +1,16 @@
 ---
 name: Feature Spec Generator
-description: Use this skill when the user asks to "create a feature spec", "generate PRD", "spec out a feature", "plan a feature", "write product requirements", "create technical architecture", or needs comprehensive feature documentation before implementation.
+description: Use this skill when the user asks to "create a feature spec", "spec out a feature", "write requirements", "document requirements", "create technical spec", or needs to clarify requirements before implementation.
 ---
 
 # Feature Spec Generator
 
-Generate comprehensive feature documentation through a PM-style interview workflow. Creates three documents:
-1. **PRD (Product Requirements Document)** - filled via interview
-2. **Technical Architecture Document** - generated from PRD
-3. **Testing Document** - generated from PRD + Architecture
+Generate comprehensive feature documentation through a requirements interview. Creates three documents:
+1. **Requirements Document** - filled via interview
+2. **Technical Architecture Document** - generated from requirements
+3. **Testing Document** - generated from requirements + architecture
+
+**Perspective:** Engineering manager peer helping clarify requirements before implementation. Focus on concrete behavior, edge cases, and technical constraints.
 
 ## Prerequisites
 
@@ -20,7 +22,7 @@ Generate comprehensive feature documentation through a PM-style interview workfl
 Documents are saved to `projects/{feature-branch-name}/` in the repository root:
 ```
 projects/{branch-name}/
-├── PRD.md
+├── REQUIREMENTS.md
 ├── ARCHITECTURE.md
 └── TESTING.md
 ```
@@ -35,68 +37,72 @@ projects/{branch-name}/
 4. Announce the three-phase process to user
 
 **Opening message:**
-"I'll help you create comprehensive feature documentation in three phases:
-1. PRD (through a PM-style interview)
+"I'll help you document this feature in three phases:
+1. Requirements (through an interview)
 2. Technical Architecture
-3. Testing Document
+3. Testing Plan
 
-All documents will be saved to `projects/{branch-name}/`. Let's start with the PRD."
+All documents will be saved to `projects/{branch-name}/`. Let's start by nailing down the requirements."
 
-### Phase 1: PRD Interview
+### Phase 1: Requirements Interview
 
-Conduct a PM-style interview to understand and document the feature. Ask questions in batches of 2-3, waiting for responses before proceeding.
+Conduct an interview to clarify and document requirements. Ask questions in batches of 2-3, waiting for responses before proceeding.
 
 **Interview sections** (in order):
 
-1. **Problem Context** (maps to Feature Overview)
-   - What problem does this feature solve?
-   - Who experiences this problem and how often?
-   - Why is now the right time to address this?
+1. **Core Behavior** (maps to Functional Requirements)
+   - Walk through the main flow step by step
+   - What are the inputs and outputs?
+   - What triggers this?
+   - What existing systems does this interact with?
 
-2. **Users and Personas** (maps to User Stories)
-   - Who is the primary user?
-   - What is their context when using this feature?
-   - Are there secondary user types?
+2. **Edge Cases & Error Handling** (maps to Edge Cases)
+   - What if input is malformed or missing?
+   - What if a dependency is unavailable?
+   - Rate limits, quotas, resource constraints?
+   - Retry/fallback behavior?
+   - Concurrency concerns?
 
-3. **Functionality** (maps to Functional Requirements)
-   - Walk through the happy path from start to finish
-   - What are the must-have capabilities (P0)?
-   - What inputs/outputs are involved?
+3. **Data & State** (maps to Data Requirements)
+   - What data is persisted vs ephemeral?
+   - Expected volume/scale?
+   - Validation rules?
+   - Sensitive data considerations?
 
-4. **Constraints** (maps to Non-Functional Requirements)
-   - Any performance requirements?
-   - Security/privacy considerations?
-   - Technical or compatibility constraints?
+4. **Integration Points** (maps to Integration)
+   - What existing code/systems does this touch?
+   - APIs consumed or exposed?
+   - Database changes needed?
+   - Backwards compatibility concerns?
 
-5. **Success Criteria** (maps to Success Metrics)
-   - What metrics indicate success?
-   - How will we measure them?
+5. **Scope Boundaries** (maps to Scope)
+   - What's the minimum viable version?
+   - What's explicitly out of scope?
+   - What can be hardcoded for now?
 
-6. **Boundaries** (maps to Out of Scope)
-   - What are we explicitly NOT building?
-   - What might users expect that we won't deliver?
-
-7. **Open Items** (maps to Open Questions)
-   - What decisions still need to be made?
-   - What assumptions need validation?
+6. **Open Questions** (maps to Open Questions)
+   - Technical unknowns or spikes needed?
+   - Decisions depending on external factors?
+   - Assumptions to validate?
 
 **Interview rules:**
 - Present 2-3 questions at a time
-- Allow "skip" or "not sure yet" for optional items
+- Allow "skip" or "I'll figure it out later" for items
+- Dig into edge cases - that's where bugs hide
 - Summarize understanding after each section
 - At the end, present a summary and ask for confirmation
 
 **After interview completion:**
-1. Load PRD template from `templates/prd.md`
+1. Load requirements template from `templates/requirements.md`
 2. Fill template with interview responses
-3. Write to `projects/{branch}/PRD.md`
-4. Present summary and ask: "Does this PRD capture the feature correctly? Reply 'yes' to proceed to Architecture, or tell me what to adjust."
+3. Write to `projects/{branch}/REQUIREMENTS.md`
+4. Present summary and ask: "Does this capture the requirements? Reply 'yes' to proceed to Architecture, or tell me what to adjust."
 
 ### Phase 2: Technical Architecture
 
-Generate architecture document based on the completed PRD.
+Generate architecture document based on the completed requirements.
 
-1. Read the PRD from `projects/{branch}/PRD.md`
+1. Read the requirements from `projects/{branch}/REQUIREMENTS.md`
 2. Analyze requirements to determine:
    - System components needed
    - Data flows between components
@@ -111,10 +117,10 @@ Generate architecture document based on the completed PRD.
 
 ### Phase 3: Testing Document
 
-Generate testing document based on PRD and Architecture.
+Generate testing document based on requirements and architecture.
 
-1. Read PRD from `projects/{branch}/PRD.md`
-2. Read Architecture from `projects/{branch}/ARCHITECTURE.md`
+1. Read requirements from `projects/{branch}/REQUIREMENTS.md`
+2. Read architecture from `projects/{branch}/ARCHITECTURE.md`
 3. Generate test plan covering:
    - Unit tests for each component
    - Integration tests for component interactions
@@ -129,13 +135,13 @@ Generate testing document based on PRD and Architecture.
 
 Present final summary:
 "Feature specification complete! Documents created:
-- `projects/{branch}/PRD.md`
+- `projects/{branch}/REQUIREMENTS.md`
 - `projects/{branch}/ARCHITECTURE.md`
 - `projects/{branch}/TESTING.md`
 
 Next steps:
-1. Review documents with stakeholders
-2. Address open questions in the PRD
+1. Review documents
+2. Resolve open questions
 3. Begin implementation"
 
 ## Phase Transitions
@@ -143,7 +149,7 @@ Next steps:
 | Transition | User Action Required |
 |------------|---------------------|
 | Init → Phase 1 | None |
-| Phase 1 → Phase 2 | Explicit approval of PRD |
+| Phase 1 → Phase 2 | Explicit approval of requirements |
 | Phase 2 → Phase 3 | Acknowledgment |
 | Phase 3 → Complete | None |
 

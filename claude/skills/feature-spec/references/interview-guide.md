@@ -1,133 +1,120 @@
-# PRD Interview Guide
+# Requirements Interview Guide
 
 ## Interview Principles
 
 1. Ask 2-3 questions at a time
 2. Wait for response before proceeding
-3. Allow "skip" or "not sure yet" responses
-4. Summarize understanding after each section
+3. Allow "skip" or "I'll figure it out later" responses
+4. Dig into edge cases and error conditions
 5. Get explicit approval before moving to architecture phase
 
----
-
-## Section 1: Problem Context
-
-**Transition:** "Let me understand the problem this feature solves."
-
-### Questions (present 2-3 at a time):
-
-1. "What specific problem does this feature solve?"
-2. "Who is experiencing this problem? How often?"
-3. "What happens if we don't solve this problem?"
-4. "Why is now the right time to address this?"
-5. "Are there existing workarounds users employ?"
-
-**Maps to:** Feature Overview / Problem Statement
+**Perspective:** Engineering manager peer helping to clarify requirements before implementation. Focus on concrete behavior, edge cases, and technical constraints - not product strategy.
 
 ---
 
-## Section 2: Users and Personas
+## Section 1: Core Behavior
 
-**Transition:** "Now let's talk about who will use this feature."
+**Transition:** "Let's nail down exactly what this needs to do."
 
 ### Questions:
 
-1. "Who is the primary user of this feature?"
-2. "What is their role or context?"
-3. "What is their technical sophistication level?"
-4. "In what context will they use this feature? (device, environment, frequency)"
-5. "Are there other user types who will interact with this?"
-
-**Maps to:** User Stories / Use Cases
-
----
-
-## Section 3: Functionality
-
-**Transition:** "Let's get into what this feature actually does."
-
-### Questions:
-
-1. "Walk me through the happy path - what does a user do from start to finish?"
-2. "What are the absolute must-have capabilities (P0s)?"
-3. "What would be nice to have but not essential (P1s)?"
-4. "What inputs does the user provide?"
-5. "What outputs or feedback do they receive?"
-6. "How does this feature connect to existing features?"
+1. "Walk me through the main flow - what happens step by step?"
+2. "What are the inputs? What are the outputs?"
+3. "What triggers this? (user action, scheduled, event-driven?)"
+4. "What existing systems or data does this interact with?"
 
 **Maps to:** Functional Requirements
 
 ---
 
-## Section 4: Constraints
+## Section 2: Edge Cases & Error Handling
 
-**Transition:** "Let's discuss any constraints or requirements beyond functionality."
+**Transition:** "Now let's think about what could go wrong."
 
 ### Questions:
 
-1. "Are there performance requirements? (response time, throughput)"
-2. "What are the security/privacy considerations?"
-3. "Are there technology constraints? (must use X, can't use Y)"
-4. "Are there compatibility requirements? (browsers, devices, APIs)"
-5. "Are there compliance or regulatory requirements?"
+1. "What happens if the input is malformed or missing?"
+2. "What if a dependency (API, database, service) is unavailable?"
+3. "Are there rate limits, quotas, or resource constraints to handle?"
+4. "What's the retry/fallback behavior when something fails?"
+5. "Any race conditions or concurrency concerns?"
 
-**Maps to:** Non-Functional Requirements
+**Maps to:** Edge Cases, Error Handling
 
 ---
 
-## Section 5: Success Metrics
+## Section 3: Data & State
 
-**Transition:** "How will we know if this feature is successful?"
+**Transition:** "Let's talk about data."
 
 ### Questions:
 
-1. "What metrics would indicate success?"
-2. "What's the target for each metric?"
-3. "How will we measure these?"
+1. "What data needs to be persisted vs. ephemeral?"
+2. "What's the expected data volume/scale?"
+3. "Are there data validation rules or constraints?"
+4. "Any data that needs to be kept in sync across systems?"
+5. "Sensitive data considerations? (PII, credentials, etc.)"
 
-**Maps to:** Success Metrics
+**Maps to:** Data Requirements, Non-Functional Requirements
 
 ---
 
-## Section 6: Boundaries
+## Section 4: Integration Points
 
-**Transition:** "It's equally important to define what's NOT in scope."
+**Transition:** "How does this fit with existing systems?"
 
 ### Questions:
 
-1. "What are we explicitly NOT building in this version?"
-2. "What might users expect that we won't deliver?"
-3. "Are there adjacent features we're deferring to later?"
+1. "What existing code/systems does this touch or modify?"
+2. "Any APIs being consumed or exposed?"
+3. "Database changes needed? (new tables, schema changes)"
+4. "Does this need to work with existing auth/permissions?"
+5. "Any backwards compatibility concerns?"
 
-**Maps to:** Out of Scope
+**Maps to:** Dependencies, Integration Requirements
 
 ---
 
-## Section 7: Open Questions
+## Section 5: Scope Boundaries
 
-**Transition:** "Finally, let's capture what we still need to figure out."
+**Transition:** "Let's be explicit about what's in and out of scope."
 
 ### Questions:
 
-1. "What decisions still need to be made?"
-2. "What information are we missing?"
-3. "What assumptions are we making that should be validated?"
+1. "What's the minimum viable version of this?"
+2. "What are we explicitly NOT doing in this iteration?"
+3. "Any tempting additions we should resist for now?"
+4. "What can we hardcode now and make configurable later?"
 
-**Maps to:** Open Questions
+**Maps to:** Out of Scope, MVP Definition
+
+---
+
+## Section 6: Open Questions
+
+**Transition:** "What do we still need to figure out?"
+
+### Questions:
+
+1. "Any technical unknowns or spikes needed?"
+2. "Decisions that depend on other teams or external factors?"
+3. "Assumptions we're making that should be validated?"
+4. "Anything blocked on more information?"
+
+**Maps to:** Open Questions, Technical Risks
 
 ---
 
 ## Interview Wrap-Up
 
 **Summary Template:**
-"Based on our discussion, here's what I understand:
+"Here's my understanding:
 
-**Problem:** {summary}
-**Users:** {summary}
-**Core Functionality:** {summary}
-**Key Constraints:** {summary}
-**Success Looks Like:** {summary}
-**Not Included:** {summary}
+**Core Flow:** {summary}
+**Key Edge Cases:** {summary}
+**Data Considerations:** {summary}
+**Integration Points:** {summary}
+**Scope:** {what's in} / NOT: {what's out}
 **Open Items:** {summary}
 
-Does this capture the feature correctly? Reply 'yes' to proceed to the Technical Architecture phase, or tell me what to adjust."
+Does this capture the requirements? Reply 'yes' to proceed to Technical Architecture, or let me know what to adjust."
