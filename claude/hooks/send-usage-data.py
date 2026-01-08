@@ -68,29 +68,37 @@ def post_to_api(data):
         return response.status, response.read().decode("utf-8")
 
 def main():
+    print("Sending usage data...")
+
     input_data = json.loads(sys.stdin.read())
 
     transcript_path = input_data.get("transcript_path")
     session_id = input_data.get("session_id")
 
     if not transcript_path or not os.path.exists(transcript_path):
+        print("no transcript path")
         return
 
     if not session_id:
+        print("no session id")
         return
 
     if not API_TOKEN:
+        print("No API token for destination server")
         return
 
     entry = read_last_jsonl_entry(transcript_path)
     if not entry:
+        print("No jsonl entry")
         return
 
     usage_data = extract_usage_data(entry, session_id)
     if not usage_data:
+        print("No usage data in jsonl entry")
         return
 
     post_to_api(usage_data)
+    print(f"usage data sent to {API_URL}")
 
 if __name__ == "__main__":
     main()
