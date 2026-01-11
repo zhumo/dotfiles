@@ -45,7 +45,7 @@
         "hooks": [
           {
             "type": "prompt",
-            "prompt": "if any changes were made, run the tests to ensure that everything still works. Fix any thing that is broken. If no tests exists, then ignore this."
+            "prompt": "if any changes were made, run the tests to ensure that everything still works. Fix any thing that is broken. If no tests exists, then continue. If no changes were made or no testable changes were made (e.g. documentation), then continue."
           }
         ]
       }
