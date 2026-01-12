@@ -12,8 +12,9 @@ mkdir -p "$HOME/.claude"
 for item in claude/*; do
   name=$(basename "$item")
   target="$HOME/.claude/$name"
-  if [ -d "$target" ] && [ ! -L "$target" ]; then
-    echo "Removing existing directory $target"
+  if [ -L "$target" ]; then
+    rm -f "$target"
+  elif [ -d "$target" ]; then
     rm -rf "$target"
   fi
   echo "Linking ~/.claude/$name to $PWD/$item"
