@@ -5,6 +5,7 @@
 - No argument validation at function start
 - No try-catch unless explicitly asked
 - Make minimal changes when fixing issues - don't refactor unrelated code
+- Don't guard against missing attributes unless explicitly asked. Let the system fail.
 
 # Git Workflow
 
