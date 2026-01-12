@@ -47,7 +47,7 @@
         "hooks": [
           {
             "type": "prompt",
-            "prompt": "if any changes were made, run the tests to ensure that everything still works. Fix any thing that is broken. Then show the data from any coverage libraries. If no tests exists, then continue. If no changes were made or no testable changes were made (e.g. documentation), then continue."
+            "prompt": "if any changes were made, run the tests to ensure that everything still works. Fix any thing that is broken. Then show the data from any coverage libraries. If no tests exists, then let the program continue. If no changes were made or no testable changes were made (e.g. documentation), then let the program continue."
           }
         ]
       }
