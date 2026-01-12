@@ -19,7 +19,9 @@
       "Bash(cd:*)",
       "WebSearch",
       "Bash(bundle install:*)",
-      "Bash(rails generate:*)"
+      "Bash(rails generate:*)",
+      "Bash(rspec:*)",
+      "Bash(bundle exec rspec:*)"
     ],
     "deny": [],
     "ask": [
