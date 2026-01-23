@@ -17,7 +17,9 @@
       "Bash(rspec:*)",
       "Bash(bundle exec rspec:*)"
     ],
-    "deny": [],
+    "deny": [
+      "Bash(bin/rails credentials/show)"
+    ],
     "ask": [
       "Bash(git merge:*)",
       "Bash(rm:*)",
@@ -26,7 +28,7 @@
       "Bash(command gh repo edit:*)",
       "Bash(command gh repo rename:*)",
       "Bash(command gh pr merge:*)",
-      "Bash(command gh pr close:*)",
+      "Bash(command gh pr close:*)"
     ],
     "defaultMode": "default"
   },
