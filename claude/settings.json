@@ -22,6 +22,8 @@
     ],
     "ask": [
       "Bash(git merge:*)",
+      "Bash(git push master)",
+      "Bash(git push main)",
       "Bash(rm:*)",
       "Bash(command gh repo archive:*)",
       "Bash(command gh repo delete:*)",
