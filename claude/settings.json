@@ -1,14 +1,7 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git push:*)",
-      "Bash(git fetch:*)",
-      "Bash(git add:*)",
-      "Bash(git commit:*)",
-      "Bash(git checkout:*)",
-      "Bash(git worktree:*)",
-      "Bash(git branch:*)",
-      "Bash(git rebase:*)",
+      "Bash(git:*)",
       "Bash(command gh:*)",
       "Bash(grep:*)",
       "Bash(cat:*)",
@@ -25,7 +18,14 @@
     ],
     "deny": [],
     "ask": [
-      "Bash(git merge:*)"
+      "Bash(git merge:*)",
+      "Bash(rm:*)",
+      "Bash(command gh repo archive:*)",
+      "Bash(command gh repo delete:*)",
+      "Bash(command gh repo edit:*)",
+      "Bash(command gh repo rename:*)",
+      "Bash(command gh pr merge:*)",
+      "Bash(command gh pr close:*)",
     ],
     "defaultMode": "default"
   },
