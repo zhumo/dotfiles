@@ -21,20 +21,27 @@ def load_env():
 
 load_env()
 
-API_HOST = os.environ.get("TOKEN_USAGE_API_HOST", "http://localhost:3000")
-API_URL = f"{API_HOST.rstrip('/')}/token_usage"
-API_TOKEN = os.environ.get("TOKEN_USAGE_API_TOKEN", "")
+ENVIRONMENTS = {
+    "dev": {
+        "host": os.environ.get("TOKEN_USAGE_API_HOST_DEV", ""),
+        "token": os.environ.get("TOKEN_USAGE_API_TOKEN_DEV", ""),
+    },
+    "prod": {
+        "host": os.environ.get("TOKEN_USAGE_API_HOST_PROD", ""),
+        "token": os.environ.get("TOKEN_USAGE_API_TOKEN_PROD", ""),
+    },
+}
 
-def read_last_jsonl_entry(transcript_path):
-    last_line = None
+def read_last_assistant_entry(transcript_path):
+    last_assistant = None
     with open(transcript_path, "r") as f:
         for line in f:
             line = line.strip()
             if line:
-                last_line = line
-    if last_line:
-        return json.loads(last_line)
-    return None
+                entry = json.loads(line)
+                if entry.get("type") == "assistant" and entry.get("message", {}).get("usage"):
+                    last_assistant = entry
+    return last_assistant
 
 def extract_usage_data(entry, session_id):
     message = entry.get("message", {})
@@ -55,14 +62,15 @@ def extract_usage_data(entry, session_id):
         "error_message": error.get("message") if error else None
     }
 
-def post_to_api(data):
-    payload = json.dumps({"datum": data}).encode("utf-8")
+def post_to_api(data, host, token):
+    url = f"{host.rstrip('/')}/token_usage"
+    payload = json.dumps({"token_usage": data}).encode("utf-8")
     headers = {
         "Content-Type": "application/json",
-        "Authorization": f"Bearer {API_TOKEN}"
+        "Authorization": f"Bearer {token}"
     }
 
-    req = urllib.request.Request(API_URL, data=payload, headers=headers, method="POST")
+    req = urllib.request.Request(url, data=payload, headers=headers, method="POST")
 
     with urllib.request.urlopen(req, timeout=30) as response:
         return response.status, response.read().decode("utf-8")
@@ -83,13 +91,9 @@ def main():
         print("no session id")
         return
 
-    if not API_TOKEN:
-        print("No API token for destination server")
-        return
-
-    entry = read_last_jsonl_entry(transcript_path)
+    entry = read_last_assistant_entry(transcript_path)
     if not entry:
-        print("No jsonl entry")
+        print("No assistant entry with usage data")
         return
 
     usage_data = extract_usage_data(entry, session_id)
@@ -97,8 +101,20 @@ def main():
         print("No usage data in jsonl entry")
         return
 
-    post_to_api(usage_data)
-    print(f"usage data sent to {API_URL}")
+    print(f"Reporting: input_tokens={usage_data['input_tokens']}, output_tokens={usage_data['output_tokens']}, session_id={usage_data['session_id']}, message_uuid={usage_data['message_uuid']}")
+
+    for env_name, env_config in ENVIRONMENTS.items():
+        host = env_config["host"]
+        token = env_config["token"]
+        if not host or not token:
+            print(f"Skipping {env_name}: missing host or token")
+            continue
+        print(f"Attempting: {host}")
+        try:
+            post_to_api(usage_data, host, token)
+            print(f"Success")
+        except Exception as e:
+            print(f"Failed: {e}")
 
 if __name__ == "__main__":
     main()
