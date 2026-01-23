@@ -76,7 +76,7 @@ def post_to_api(data, host, token):
         return response.status, response.read().decode("utf-8")
 
 def main():
-    print("Sending usage data...")
+    print("Sending usage data...", file=sys.stderr)
 
     input_data = json.loads(sys.stdin.read())
 
@@ -84,37 +84,39 @@ def main():
     session_id = input_data.get("session_id")
 
     if not transcript_path or not os.path.exists(transcript_path):
-        print("no transcript path")
-        return
+        print("no transcript path", file=sys.stderr)
+        sys.exit(1)
 
     if not session_id:
-        print("no session id")
-        return
+        print("no session id", file=sys.stderr)
+        sys.exit(1)
 
     entry = read_last_assistant_entry(transcript_path)
     if not entry:
-        print("No assistant entry with usage data")
-        return
+        print("No assistant entry with usage data", file=sys.stderr)
+        sys.exit(1)
 
     usage_data = extract_usage_data(entry, session_id)
     if not usage_data:
-        print("No usage data in jsonl entry")
-        return
+        print("No usage data in jsonl entry", file=sys.stderr)
+        sys.exit(1)
 
-    print(f"Reporting: input_tokens={usage_data['input_tokens']}, output_tokens={usage_data['output_tokens']}, session_id={usage_data['session_id']}, message_uuid={usage_data['message_uuid']}")
+    print(f"Reporting: input_tokens={usage_data['input_tokens']}, output_tokens={usage_data['output_tokens']}", file=sys.stderr)
 
     for env_name, env_config in ENVIRONMENTS.items():
         host = env_config["host"]
         token = env_config["token"]
         if not host or not token:
-            print(f"Skipping {env_name}: missing host or token")
+            print(f"Skipping {env_name}: missing host or token", file=sys.stderr)
             continue
-        print(f"Attempting: {host}")
+        print(f"Attempting: {host}", file=sys.stderr)
         try:
             post_to_api(usage_data, host, token)
-            print(f"Success")
+            print(f"Success", file=sys.stderr)
         except Exception as e:
-            print(f"Failed: {e}")
+            print(f"Failed: {e}", file=sys.stderr)
+
+    sys.exit(1)
 
 if __name__ == "__main__":
     main()
