@@ -21,50 +21,56 @@ def load_env():
 
 load_env()
 
-ENVIRONMENTS = {
-    "dev": {
-        "host": os.environ.get("TOKEN_USAGE_API_HOST_DEV", ""),
-        "token": os.environ.get("TOKEN_USAGE_API_TOKEN_DEV", ""),
-    },
-    "prod": {
-        "host": os.environ.get("TOKEN_USAGE_API_HOST_PROD", ""),
-        "token": os.environ.get("TOKEN_USAGE_API_TOKEN_PROD", ""),
-    },
-}
+def get_last_message_id(session_id, host, api_token):
+    url = f"{host.rstrip('/')}/sessions/{session_id}/token_usages"
+    headers = {
+        "Authorization": f"Bearer {api_token}"
+    }
+    req = urllib.request.Request(url, headers=headers, method="GET")
+    with urllib.request.urlopen(req, timeout=30) as response:
+        data = json.loads(response.read().decode("utf-8"))
+        if data and len(data) > 0:
+            return data[0].get("message_id")
+        return None
 
-def read_last_assistant_entry(transcript_path):
-    last_assistant = None
+def get_usage_data(transcript_path, after_message_id, session_id):
+    usage_data = {}
+    after_message_has_been_passed = False
     with open(transcript_path, "r") as f:
         for line in f:
             line = line.strip()
-            if line:
-                entry = json.loads(line)
-                if entry.get("type") == "assistant" and entry.get("message", {}).get("usage"):
-                    last_assistant = entry
-    return last_assistant
+            entry = json.loads(line)
+            msg_id = entry.get("message", {}).get("id")
+
+            if not after_message_has_been_passed:
+                if msg_id == after_message_id:
+                    after_message_has_been_passed = True
+                continue
+            elif entry.get("type") == "assistant":
+                usage_data[msg_id] = extract_usage_data(entry, session_id)
+
+    # Doing this de-duplicates the usage_data. Clever!
+    return list(usage_data.values())
 
 def extract_usage_data(entry, session_id):
     message = entry.get("message", {})
-    message_uuid = entry.get("uuid")
-
-    if not message_uuid:
-        return None
+    message_id = message.get("id")
 
     usage = message.get("usage", {})
     error = message.get("error", {})
 
     return {
         "session_id": session_id,
-        "message_uuid": message_uuid,
+        "message_id": message_id,
         "input_tokens": usage.get("input_tokens", 0),
         "output_tokens": usage.get("output_tokens", 0),
         "error_type": error.get("type") if error else None,
         "error_message": error.get("message") if error else None
     }
 
-def post_to_api(data, host, token):
-    url = f"{host.rstrip('/')}/token_usage"
-    payload = json.dumps({"token_usage": data}).encode("utf-8")
+def post_usage_datum(datum, host, token):
+    url = f"{host.rstrip('/')}/token_usages"
+    payload = json.dumps({"token_usage": datum}).encode("utf-8")
     headers = {
         "Content-Type": "application/json",
         "Authorization": f"Bearer {token}"
@@ -75,6 +81,27 @@ def post_to_api(data, host, token):
     with urllib.request.urlopen(req, timeout=30) as response:
         return response.status, response.read().decode("utf-8")
 
+def send_usage_data(usage_data, host, token):
+    for usage_datum in usage_data:
+        try:
+            post_usage_datum(usage_datum, host, token)
+        except urllib.error.HTTPError as e:
+            print(f"Failed: {e.url} {e.code} - {e.reason}", file=sys.stderr)
+
+def extract_and_send_usage_data_for_env(transcript_path, session_id, host, api_token):
+    try:
+        last_message_id = get_last_message_id(session_id, host, api_token)
+    except urllib.error.HTTPError as e:
+        print(f"Failed: {e.url} {e.code} - {e.reason}", file=sys.stderr)
+        return
+
+    usage_data = get_usage_data(transcript_path, last_message_id, session_id)
+
+    total_input = sum(e.get("input_tokens", 0) for e in usage_data)
+    total_output = sum(e.get("output_tokens", 0) for e in usage_data)
+    print(f"Found {len(usage_data)} unique usage data, total: input={total_input}, output={total_output}", file=sys.stderr)
+    send_usage_data(usage_data, host, api_token)
+
 def main():
     print("Sending usage data...", file=sys.stderr)
 
@@ -83,38 +110,16 @@ def main():
     transcript_path = input_data.get("transcript_path")
     session_id = input_data.get("session_id")
 
-    if not transcript_path or not os.path.exists(transcript_path):
-        print("no transcript path", file=sys.stderr)
-        sys.exit(1)
+    dev_host = os.environ.get("TOKEN_USAGE_API_HOST_DEV", "")
+    dev_api_token = os.environ.get("TOKEN_USAGE_API_TOKEN_DEV", "")
+    if dev_host and dev_api_token:
+        print(f"Sending to Dev: {dev_host}", file=sys.stderr)
+        extract_and_send_usage_data_for_env(transcript_path, session_id, dev_host, dev_api_token)
 
-    if not session_id:
-        print("no session id", file=sys.stderr)
-        sys.exit(1)
-
-    entry = read_last_assistant_entry(transcript_path)
-    if not entry:
-        print("No assistant entry with usage data", file=sys.stderr)
-        sys.exit(1)
-
-    usage_data = extract_usage_data(entry, session_id)
-    if not usage_data:
-        print("No usage data in jsonl entry", file=sys.stderr)
-        sys.exit(1)
-
-    print(f"Reporting: input_tokens={usage_data['input_tokens']}, output_tokens={usage_data['output_tokens']}", file=sys.stderr)
-
-    for env_name, env_config in ENVIRONMENTS.items():
-        host = env_config["host"]
-        token = env_config["token"]
-        if not host or not token:
-            print(f"Skipping {env_name}: missing host or token", file=sys.stderr)
-            continue
-        print(f"Attempting: {host}", file=sys.stderr)
-        try:
-            post_to_api(usage_data, host, token)
-            print(f"Success", file=sys.stderr)
-        except Exception as e:
-            print(f"Failed: {e}", file=sys.stderr)
+    prod_host = os.environ.get("TOKEN_USAGE_API_HOST_PROD", "")
+    prod_api_token = os.environ.get("TOKEN_USAGE_API_TOKEN_PROD", "")
+    print(f"Sending to Prod: {prod_host}", file=sys.stderr)
+    extract_and_send_usage_data_for_env(transcript_path, session_id, prod_host, prod_api_token)
 
     sys.exit(1)
 
