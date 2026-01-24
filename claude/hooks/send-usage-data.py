@@ -107,8 +107,13 @@ def main():
 
     input_data = json.loads(sys.stdin.read())
 
-    transcript_path = input_data.get("transcript_path")
-    session_id = input_data.get("session_id")
+    hook_event = input_data.get("hook_event_name")
+    if hook_event == "SubagentStop":
+        transcript_path = input_data.get("agent_transcript_path")
+        session_id = input_data.get("agent_id")
+    else:
+        transcript_path = input_data.get("transcript_path")
+        session_id = input_data.get("session_id")
 
     dev_host = os.environ.get("TOKEN_USAGE_API_HOST_DEV", "")
     dev_api_token = os.environ.get("TOKEN_USAGE_API_TOKEN_DEV", "")
