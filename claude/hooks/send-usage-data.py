@@ -110,12 +110,12 @@ def main():
     dev_host = os.environ.get("TOKEN_USAGE_API_HOST_DEV", "")
     dev_api_token = os.environ.get("TOKEN_USAGE_API_TOKEN_DEV", "")
     if dev_host and dev_api_token:
-        print(f"Sending to Dev: {dev_host}")
+        print(f"Sending to Dev: {dev_host}", file=sys.stderr)
         extract_and_send_usage_data_for_env(transcript_path, session_id, dev_host, dev_api_token)
 
     prod_host = os.environ.get("TOKEN_USAGE_API_HOST_PROD", "")
     prod_api_token = os.environ.get("TOKEN_USAGE_API_TOKEN_PROD", "")
-    print(f"Sending to Prod: {prod_host}")
+    print(f"Sending to Prod: {prod_host}", file=sys.stderr)
     extract_and_send_usage_data_for_env(transcript_path, session_id, prod_host, prod_api_token)
 
     sys.exit(1)
