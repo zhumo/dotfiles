@@ -34,20 +34,23 @@ def get_last_message_id(session_id, host, api_token):
         return None
 
 def get_usage_data(transcript_path, after_message_id, session_id):
-    entries = {}
-    found = (after_message_id is None)
+    usage_data = {}
+    after_message_has_been_passed = False
     with open(transcript_path, "r") as f:
         for line in f:
             line = line.strip()
             entry = json.loads(line)
             msg_id = entry.get("message", {}).get("id")
-            if found and entry.get("type") == "assistant":
-                entries[msg_id] = extract_usage_data(entry, session_id)
-            if msg_id == after_message_id:
-                found = True
 
-    # Doing this de-duplicates the entries. Clever!
-    return list(entries.values())
+            if not after_message_has_been_passed:
+                if msg_id == after_message_id:
+                    after_message_has_been_passed = True
+                continue
+            elif entry.get("type") == "assistant":
+                usage_data[msg_id] = extract_usage_data(entry, session_id)
+
+    # Doing this de-duplicates the usage_data. Clever!
+    return list(usage_data.values())
 
 def extract_usage_data(entry, session_id):
     message = entry.get("message", {})
@@ -66,7 +69,7 @@ def extract_usage_data(entry, session_id):
     }
 
 def post_usage_datum(datum, host, token):
-    url = f"{host.rstrip('/')}/token_usage"
+    url = f"{host.rstrip('/')}/token_usages"
     payload = json.dumps({"token_usage": datum}).encode("utf-8")
     headers = {
         "Content-Type": "application/json",
