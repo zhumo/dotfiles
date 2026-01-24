@@ -86,7 +86,11 @@ def send_usage_data(usage_data, host, token):
             print(f"Failed: {e.reason}", file=sys.stderr)
 
 def extract_and_send_usage_data_for_env(transcript_path, session_id, host, api_token):
-    last_message_id = get_last_message_id(session_id, host, api_token)
+    try:
+        last_message_id = get_last_message_id(session_id, host, api_token)
+    except urllib.error.HTTPError as e:
+        print(f"Failed: {e.code} {e.reason}", file=sys.stderr)
+        return
 
     usage_data = get_usage_data(transcript_path, last_message_id, session_id)
 
