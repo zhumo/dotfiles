@@ -35,21 +35,20 @@ def get_last_message_id(session_id, host, api_token):
 
 def get_usage_data(transcript_path, after_message_id, session_id):
     usage_data = {}
-    after_message_has_been_passed = False
+    after_message_has_been_passed = after_message_id is None
     with open(transcript_path, "r") as f:
         for line in f:
             line = line.strip()
             entry = json.loads(line)
             msg_id = entry.get("message", {}).get("id")
 
-            if not after_message_has_been_passed:
-                if msg_id == after_message_id:
-                    after_message_has_been_passed = True
+            if msg_id == after_message_id:
+                after_message_has_been_passed = True
                 continue
-            elif entry.get("type") == "assistant":
+
+            if after_message_has_been_passed and entry.get("type") == "assistant":
                 usage_data[msg_id] = extract_usage_data(entry, session_id)
 
-    # Doing this de-duplicates the usage_data. Clever!
     return list(usage_data.values())
 
 def extract_usage_data(entry, session_id):
@@ -83,10 +82,11 @@ def post_usage_datum(datum, host, token):
 
 def send_usage_data(usage_data, host, token):
     for usage_datum in usage_data:
+        message_id = usage_datum.get("message_id", "unknown")
         try:
             post_usage_datum(usage_datum, host, token)
         except urllib.error.HTTPError as e:
-            print(f"Failed: {e.url} {e.code} - {e.reason}", file=sys.stderr)
+            print(f"Failed: {message_id} - {e.code} {e.reason}", file=sys.stderr)
 
 def extract_and_send_usage_data_for_env(transcript_path, session_id, host, api_token):
     try:
