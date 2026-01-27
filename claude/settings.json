@@ -16,6 +16,7 @@
       "Bash(rails generate:*)",
       "Bash(rspec:*)",
       "Bash(bundle exec rspec:*)",
+      "Bash(bundle install)",
       "Bash(rubocop:*)"
     ],
     "deny": [
@@ -31,7 +32,9 @@
       "Bash(command gh repo edit:*)",
       "Bash(command gh repo rename:*)",
       "Bash(command gh pr merge:*)",
-      "Bash(command gh pr close:*)"
+      "Bash(command gh pr close:*)",
+      "Edit(Gemfile)",
+      "Write(Gemfile)"
     ],
     "defaultMode": "default"
   },
