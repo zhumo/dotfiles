@@ -15,7 +15,8 @@
       "Bash(bundle install:*)",
       "Bash(rails generate:*)",
       "Bash(rspec:*)",
-      "Bash(bundle exec rspec:*)"
+      "Bash(bundle exec rspec:*)",
+      "Bash(rubocop:*)"
     ],
     "deny": [
       "Bash(bin/rails credentials/show)"
