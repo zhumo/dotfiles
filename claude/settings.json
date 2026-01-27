@@ -17,6 +17,7 @@
       "Bash(rspec:*)",
       "Bash(bundle exec rspec:*)",
       "Bash(bundle install)",
+      "Bash(rails db:*)",
       "Bash(rubocop:*)"
     ],
     "deny": [
@@ -27,6 +28,11 @@
       "Bash(git push master)",
       "Bash(git push main)",
       "Bash(rm:*)",
+      "Bash(rails db:drop)",
+      "Bash(rails db:rollback)",
+      "Bash(rails db:reset)",
+      "Bash(rails db:migrate:redo)",
+      "Bash(rails db:migrate:down)",
       "Bash(command gh repo archive:*)",
       "Bash(command gh repo delete:*)",
       "Bash(command gh repo edit:*)",
