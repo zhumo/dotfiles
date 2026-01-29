@@ -26,6 +26,7 @@ export PS1="%F{yellow}%n@%1~\${vcs_info_msg_0_} =>%f  "
 export EDITOR=nvim
 alias vim="nvim"
 alias v="vim"
+alias c="claude"
 
 export PYTHONPATH="/usr/local/lib/python:/usr/local/lib/python/site-packages:/usr/local/lib/python/site-packages/caption_positioning:/usr/local/lib/python/site-packages/dsptools:$PYTHONPATH"
 
@@ -57,10 +58,9 @@ export PATH=$PATH:$GOPATH/bin
 
 eval "$(rbenv init - zsh)"
 
-# Added by Windsurf
-export PATH="/Users/mozhu/.codeium/windsurf/bin:$PATH"
-
 . "$HOME/.local/bin/env"
 
 # Added by Antigravity
 export PATH="/Users/mozhu/.antigravity/antigravity/bin:$PATH"
+
+export PATH="$HOME/.local/bin:$PATH"
