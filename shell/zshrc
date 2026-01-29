@@ -64,8 +64,6 @@ export PATH=$PATH:$GOPATH/bin
 
 eval "$(rbenv init - zsh)"
 
-. "$HOME/.local/bin/env"
-
 # Added by Antigravity
 export PATH="/Users/mozhu/.antigravity/antigravity/bin:$PATH"
 
