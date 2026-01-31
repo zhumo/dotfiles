@@ -17,9 +17,16 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'Lokaltog/vim-distinguished'
 Plugin 'morhetz/gruvbox'
+Plugin 'vim-test/vim-test'
 
 call vundle#end()
 filetype plugin indent on
+
+let test#strategy = 'basic'
+let test#javascript#vitest#options = '--run'
+nmap <leader>a :TestSuite<CR>
+nmap <leader>t :TestFile<CR>
+nmap <leader>s :TestNearest<CR>
 au BufNewFile,BufRead *.prawn set filetype=ruby
 au BufNewFile,BufRead *.json.jbuilder set filetype=ruby
 au BufNewFile,BufRead *.axlsx set filetype=ruby
