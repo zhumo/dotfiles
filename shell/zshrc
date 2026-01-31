@@ -46,7 +46,7 @@ alias gco="git checkout"
 alias gss="git stash"
 alias gsp="git stash pop"
 alias gfa="git fetch -a"
-alias gpp="git fetch -a && git pull"
+alias gfp="git fetch -a && git pull"
 
 # Rails aliases
 alias mrmt="rake db:migrate && rake db:rollback && rake db:migrate && rake db:test:prepare"
