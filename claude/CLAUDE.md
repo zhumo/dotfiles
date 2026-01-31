@@ -19,6 +19,7 @@
 - Update CLAUDE.md after significant code changes
 - Write out purpose before running bash scripts
 - Reflect on tool results before proceeding
+- After finishing each round of changes, go click through the application using the Chrome browser plugin. Verify the functionality and any functionality that was impacted by the last round of changes.
 
 # Running Bash Commands
 - When specifying a path, use paths relative to the current working directory, rather than absolute paths.
