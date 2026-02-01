@@ -22,6 +22,7 @@ filetype plugin indent on
 
 let test#strategy = 'basic'
 let test#javascript#vitest#options = '--run'
+autocmd BufEnter */e2e/* let b:test_runner = 'playwright'
 nmap <leader>a :TestSuite<CR>
 nmap <leader>t :TestFile<CR>
 nmap <leader>s :TestNearest<CR>
