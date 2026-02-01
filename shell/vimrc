@@ -110,7 +110,6 @@ let g:netrw_list_hide='.*\.DS_Store$'
 "let NERDTreeShowHidden=1
 map <leader>k :Ex<cr>
 
-set t_Co=256
 color gruvbox
 
 "open up todo file
