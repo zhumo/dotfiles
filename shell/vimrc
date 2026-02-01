@@ -1,5 +1,3 @@
-"separates vim from vi, allowing the many customizations found in vim
-set nocompatible
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -27,6 +25,7 @@ let test#javascript#vitest#options = '--run'
 nmap <leader>a :TestSuite<CR>
 nmap <leader>t :TestFile<CR>
 nmap <leader>s :TestNearest<CR>
+
 au BufNewFile,BufRead *.prawn set filetype=ruby
 au BufNewFile,BufRead *.json.jbuilder set filetype=ruby
 au BufNewFile,BufRead *.axlsx set filetype=ruby
@@ -35,8 +34,6 @@ au BufNewFile,BufRead *.axlsx set filetype=ruby
 au BufNewFile,BufRead *.md set wrap
 au BufNewFile,BufRead *.txt set wrap
 
-"In the bottom of the screen, it will show me the XY coordinates of my cursor
-set ruler
 set rulerformat='%60(%f:%l\ of\ %L%)'
 
 "Highlight cursor line
@@ -52,15 +49,6 @@ set nowritebackup
 
 "prevents vim from creating a separate swap file, which tends to get in the way of git.
 set noswapfile
-set history=50
-
-"shows relevant information at bottom of screen when you are using commands.
-set showcmd
-
-"live searching as you type
-set incsearch
-"search terms stay highlighted after you hit enter
-set hlsearch
 
 map <space> <leader>
 "get rid of highlighting after you are done with searching
@@ -78,15 +66,6 @@ set scrolloff=10
 set tabstop=2
 set shiftwidth=2
 set expandtab
-
-"hit tab for vim to autocomplete you file name. Hit tab again to cycle to next option.
-set wildmode=full
-
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
-  syntax on
-endif
 
 " Display extra whitespace
 set list listchars=tab:··,trail:·
@@ -116,8 +95,6 @@ endfunction
 "set toggle line numbers
 map <leader>l :call ToggleLineNumbers()<cr>
 
-"set auto indentation
-set autoindent
 "set smartindent <- This has been set off because it interferes with the endwise plugin
 
 "movement keys always move cursor to start of a line.
@@ -135,7 +112,6 @@ map <leader>k :Ex<cr>
 
 set t_Co=256
 color gruvbox
-set noerrorbells
 
 "open up todo file
 map <Leader>o :e .todo<CR>
@@ -166,7 +142,7 @@ map<leader><cr> o<esc>
 "map<s-Tab> <<
 
 "being typing shell commands
-map<leader>i :!<cr>
+map<leader>i :!
 
 "Common mistaken keys for saving and quitting
 map :W<cr> :w<cr>
