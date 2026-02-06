@@ -11,7 +11,7 @@
       "Bash(cp:*)",
       "Bash(cd:*)",
       "WebSearch",
-      "WebFetch(domain:*)",
+      "WebFetch",
       "Bash(bundle install:*)",
       "Bash(rails generate:*)",
       "Bash(rspec:*)",
