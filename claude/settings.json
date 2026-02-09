@@ -27,6 +27,8 @@
       "Bash(git merge:*)",
       "Bash(git push master)",
       "Bash(git push main)",
+      "Bash(git push --force)",
+      "Bash(git push -f)",
       "Bash(rm:*)",
       "Bash(rails db:drop)",
       "Bash(rails db:rollback)",
