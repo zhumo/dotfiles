@@ -46,7 +46,7 @@
       "Edit(Gemfile)",
       "Write(Gemfile)"
     ],
-    "defaultMode": "default"
+    "defaultMode": "auto"
   },
   "model": "opus",
   "hooks": {
@@ -114,5 +114,6 @@
     "claude-code-setup@claude-plugins-official": true,
     "hookify@claude-plugins-official": true
   },
-  "spinnerTipsEnabled": false
+  "spinnerTipsEnabled": false,
+  "tui": "fullscreen"
 }
