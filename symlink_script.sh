@@ -21,6 +21,10 @@ for item in claude/*; do
   ln -svfi "$PWD/$item" "$target"
 done
 
+echo "Linking ~/.config/nvim to $PWD/nvim"
+mkdir -p "$HOME/.config"
+ln -svfn "$PWD/nvim" "$HOME/.config/nvim"
+
 echo "Cloning vundle into ~/.vim"
 echo "If vundle already exists in ~/.vim, then this will give a failure message."
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/Vundle.vim

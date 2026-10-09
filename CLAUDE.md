@@ -5,6 +5,7 @@ This is a dotfiles repo that symlinks config files to the home directory.
 
 - `shell/` - Shell config files (zshrc, vimrc, gitconfig, etc.) → symlinked as `~/.{filename}`
 - `claude/` - Global Claude Code config → symlinked into `~/.claude/`
+- `nvim/` - Neovim config → symlinked as `~/.config/nvim`. `init.vim` in turn sources `~/.vimrc`
 - `symlink_script.sh` - Sets up all symlinks, also installs Vundle for vim
 
 Note that ./claude/ is the repository of files that should be symlinked into ~/.claude/ but then locally in this repo, there is ./.claude/ which is the project-level configurations for Claude Code.
