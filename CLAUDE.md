@@ -20,6 +20,8 @@ Run `./symlink_script.sh` to create symlinks. The script:
 3. Links `nvim/` to `~/.config/nvim`
 4. Creates `~/iCloud` and `~/programming` shortcuts
 
+The Neovim config also needs `brew install fzf fd ripgrep` (used by fzf-lua).
+
 ## Testing Changes
 
 Shell config changes require reloading: `source ~/.zshrc`

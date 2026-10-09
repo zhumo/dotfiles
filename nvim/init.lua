@@ -4,14 +4,12 @@ local opt = vim.opt
 local map = vim.keymap.set
 
 vim.pack.add({
-  'https://github.com/kien/ctrlp.vim',
+  'https://github.com/ibhagwan/fzf-lua',
   'https://github.com/tpope/vim-surround',
   'https://github.com/tpope/vim-endwise',
   'https://github.com/mkitt/tabline.vim',
   'https://github.com/tpope/vim-fugitive',
-  'https://github.com/sheerun/vim-polyglot',
-  'https://github.com/Lokaltog/vim-distinguished',
-  'https://github.com/morhetz/gruvbox',
+  'https://github.com/ellisonleao/gruvbox.nvim',
   'https://github.com/vim-test/vim-test',
   'https://github.com/coder/claudecode.nvim',
 }, { confirm = false })
@@ -26,8 +24,13 @@ map('n', '<leader>a', '<cmd>TestSuite<cr>')
 map('n', '<leader>t', '<cmd>TestFile<cr>')
 map('n', '<leader>s', '<cmd>TestNearest<cr>')
 
--- Ignore certains directories for ctrl-p
-vim.g.ctrlp_custom_ignore = [[deps\|node_modules]]
+-- Ignore certains directories for fzf
+require('fzf-lua').setup({
+  files = {
+    fd_opts = '--color=never --hidden --type f --type l --exclude .git --exclude deps --exclude node_modules',
+  },
+})
+map('n', '<C-p>', '<cmd>FzfLua files<cr>')
 
 vim.cmd.colorscheme('gruvbox')
 
