@@ -11,7 +11,6 @@
 
 - `gh` is aliased to `git hist`, so use `command gh` for GitHub CLI
 - Prefer rebase over merge when updating feature branches from master/main
-- Name worktrees as `{repo-name}--{branch-name}`
 - When fetching comments with the `gh` utility, use --paginate to make sure you get all of the comments. 
 
 # Process
