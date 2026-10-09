@@ -3,6 +3,42 @@
     "claudecode.nvim": {
       "rev": "2390c6e45c4789072c293ac69de051d169668b29",
       "src": "https://github.com/coder/claudecode.nvim"
+    },
+    "ctrlp.vim": {
+      "rev": "564176f01d7f3f7f8ab452ff4e1f5314de7b0981",
+      "src": "https://github.com/kien/ctrlp.vim"
+    },
+    "gruvbox": {
+      "rev": "ef8864bb42bf244f0295d1c5a403b27e3d139695",
+      "src": "https://github.com/morhetz/gruvbox"
+    },
+    "tabline.vim": {
+      "rev": "69c9698a3240860adaba93615f44778a9ab724b4",
+      "src": "https://github.com/mkitt/tabline.vim"
+    },
+    "vim-distinguished": {
+      "rev": "62b360dc81355b53d124cd06218a9ba2496563fc",
+      "src": "https://github.com/Lokaltog/vim-distinguished"
+    },
+    "vim-endwise": {
+      "rev": "4994afb0cdf956d9a665a14b9c834869e602c396",
+      "src": "https://github.com/tpope/vim-endwise"
+    },
+    "vim-fugitive": {
+      "rev": "3b753cf8c6a4dcde6edee8827d464ba9b8c4a6f0",
+      "src": "https://github.com/tpope/vim-fugitive"
+    },
+    "vim-polyglot": {
+      "rev": "f061eddb7cdcc614c8406847b2bfb53099832a4e",
+      "src": "https://github.com/sheerun/vim-polyglot"
+    },
+    "vim-surround": {
+      "rev": "3d188ed2113431cf8dac77be61b842acb64433d9",
+      "src": "https://github.com/tpope/vim-surround"
+    },
+    "vim-test": {
+      "rev": "3afb1cf5cd3013e8822e6eecf612fc36c974a98f",
+      "src": "https://github.com/vim-test/vim-test"
     }
   }
 }

@@ -25,13 +25,8 @@ echo "Linking ~/.config/nvim to $PWD/nvim"
 mkdir -p "$HOME/.config"
 ln -svfn "$PWD/nvim" "$HOME/.config/nvim"
 
-echo "Cloning vundle into ~/.vim"
-echo "If vundle already exists in ~/.vim, then this will give a failure message."
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/Vundle.vim
-
 echo "Shortcut to ~/programming"
 ln -s "/Users/mozhu/Library/Mobile Documents/com~apple~CloudDocs/programming/" ~/programming
 
 echo "Script done."
-echo "Next when you open vim, run the command :BundleInstall to install the plugins."
-echo "You can also add your own plugins to the list."
+echo "Plugins install automatically the first time you open nvim."

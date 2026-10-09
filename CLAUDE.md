@@ -3,10 +3,10 @@
 
 This is a dotfiles repo that symlinks config files to the home directory.
 
-- `shell/` - Shell config files (zshrc, vimrc, gitconfig, etc.) → symlinked as `~/.{filename}`
+- `shell/` - Shell config files (zshrc, gitconfig, etc.) → symlinked as `~/.{filename}`
 - `claude/` - Global Claude Code config → symlinked into `~/.claude/`
-- `nvim/` - Neovim config → symlinked as `~/.config/nvim`. `init.vim` in turn sources `~/.vimrc`
-- `symlink_script.sh` - Sets up all symlinks, also installs Vundle for vim
+- `nvim/` - Neovim config → symlinked as `~/.config/nvim`.
+- `symlink_script.sh` - Sets up all symlinks
 
 Note that ./claude/ is the repository of files that should be symlinked into ~/.claude/ but then locally in this repo, there is ./.claude/ which is the project-level configurations for Claude Code.
 
@@ -17,14 +17,14 @@ vimium is an extension for Chrome that enables vim-style keybindings. That shoul
 Run `./symlink_script.sh` to create symlinks. The script:
 1. Links each file in `shell/*` to `~/.{filename}`
 2. Links each item in `claude/*` to `~/.claude/{name}`
-3. Clones Vundle for vim plugin management
+3. Links `nvim/` to `~/.config/nvim`
 4. Creates `~/iCloud` and `~/programming` shortcuts
 
 ## Testing Changes
 
 Shell config changes require reloading: `source ~/.zshrc`
 
-Vim changes require restarting vim or `:source ~/.vimrc`
+Neovim changes require restarting nvim or `:source $MYVIMRC`
 
 ## Usage
 - Note that because the files are symlinked, you do not need to ask tool permission for files like ~/.claude/settings.json or ~/.zshrc. Instead, simply run the tool on the local version of those files claude/settings.json or shell/zshrc, respectively, for example.
